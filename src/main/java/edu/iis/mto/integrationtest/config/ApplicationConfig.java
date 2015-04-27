@@ -15,7 +15,7 @@ import edu.iis.mto.integrationtest.utils.ModeUtils;
 public class ApplicationConfig {
 
 	@Bean
-	public PropertyPlaceholderConfigurer resolver() {
+	public static PropertyPlaceholderConfigurer resolver() {
 		PropertyPlaceholderConfigurer resolver = new PropertyPlaceholderConfigurer();
 		resolver.setLocation(new ClassPathResource(ModeUtils.getMode().getModeName()
 				+ "-persistence.properties"));
