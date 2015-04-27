@@ -30,9 +30,9 @@ public class PersistenceConfig {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(PersistenceConfig.class);
 
-	private static final String SQL_FOLDER_NAME = "/sql";
-	private static final String SQL_SCHEMA_SCRIPT_PATH = "/sql/schema-script.sql";
-	private static final String DATA_SCRIPT_FILENAME_SUFFIX = "dev-";
+	private static final String SQL_FOLDER_NAME = "sql/";
+	private static final String SQL_SCHEMA_SCRIPT_PATH = "sql/schema-script.sql";
+	private static final String DATA_SCRIPT_FILENAME_SUFFIX = "-data-script.sql";
 
 	@Value("${database.url}")
 	private String databaseUrl;
@@ -43,7 +43,7 @@ public class PersistenceConfig {
 	@Value("${database.password}")
 	private String databasePassword;
 
-	@Value("${database.driverClass}")
+	@Value("${database.driver}")
 	private String databaseDriverClass;
 
 	@Bean(name = "dataSource")
