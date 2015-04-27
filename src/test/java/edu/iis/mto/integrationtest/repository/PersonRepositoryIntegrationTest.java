@@ -34,6 +34,25 @@ public class PersonRepositoryIntegrationTest extends IntegrationTest {
 				.getLastName());
 	}
 
+	@Test
+	public void testUpdatePersonAndCheckIsPersisted() {
+		Person exptectedPerson = personRepository.findOne(1L);
+		exptectedPerson.setFirstName("CHANGED_NAME");
+		personRepository.save(exptectedPerson);
+
+		Person person = personRepository.findOne(1L);
+		assertEquals(person, exptectedPerson);
+	}
+
+	@Test
+	public void testDeletePersonAndCheckIsPersisted() {
+		Person person = personRepository.findOne(1L);
+		personRepository.delete(person);
+
+		Person personNo2 = personRepository.findOne(1L);
+		assertEquals(personNo2, null);
+	}
+
 	private Person a(PersonBuilder builder) {
 		return builder.build();
 	}
