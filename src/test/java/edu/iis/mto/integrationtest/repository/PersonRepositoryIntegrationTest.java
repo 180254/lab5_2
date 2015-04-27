@@ -7,10 +7,12 @@ import java.util.List;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.annotation.DirtiesContext.ClassMode;
 
 import edu.iis.mto.integrationtest.model.Person;
 
-
+@DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
 public class PersonRepositoryIntegrationTest extends IntegrationTest {
 
 	@Autowired
